@@ -1,0 +1,22 @@
+﻿<Window x:Class="program.AddCompany"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:program"
+        mc:Ignorable="d"
+        Title="Dobaj firmy" Height="403" Width="467" ResizeMode="NoResize">
+
+    <Grid Background="Silver" Margin="0,0,0,1">
+        <Label FontSize="15" FontFamily="Verdana" Content="Nazwa Firmy" HorizontalAlignment="Left" Margin="10,22,0,0" VerticalAlignment="Top" Height="28" Width="109"/>
+        <Label FontSize="15" FontFamily="Verdana" Content="Adres" HorizontalAlignment="Left" Margin="10,136,0,0" VerticalAlignment="Top" Height="28" Width="81"/>
+        <Label FontSize="15" FontFamily="Verdana" Content="Krótkie imię" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Height="28" Width="109" RenderTransformOrigin="0.469,-0.284"/>
+        <Label FontSize="15" FontFamily="Verdana" Content="NIP" HorizontalAlignment="Left" Margin="10,197,0,0" VerticalAlignment="Top" Height="28" Width="82"/>
+        <TextBox FontSize="20" FontFamily="Verdana" BorderThickness="2" x:Name="CompanyName" Margin="125,17,0,0" TextWrapping="Wrap" TextChanged="CompanyName_TextChanged" Height="38" VerticalAlignment="Top" HorizontalAlignment="Left" Width="283"/>
+        <TextBox FontSize="20" FontFamily="Verdana" BorderThickness="2" x:Name="CompanyShortName" HorizontalAlignment="Left" Margin="124,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284" Height="36" TextChanged="CompanyShortName_TextChanged"/>
+        <TextBox FontSize="20" FontFamily="Verdana" BorderThickness="2" x:Name="CompanyAddres" HorizontalAlignment="Left" Margin="124,132,0,0" TextWrapping="Wrap" Width="284" Height="36" VerticalAlignment="Top" TextChanged="CompanyAddres_TextChanged"/>
+        <TextBox FontSize="20" FontFamily="Verdana" BorderThickness="2" x:Name="CompanyNIP" HorizontalAlignment="Left" Margin="125,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284" Height="36" TextChanged="CompanyNIP_TextChanged"/>
+        <Button FontSize="20" x:Name="_btnAddCompany" Content="Wprowadź" Background="DarkGray" HorizontalAlignment="Left" Margin="124,263,0,0" VerticalAlignment="Top" Width="285" Height="49" Click="_btnAddCompany_Click"/>
+
+    </Grid>
+</Window>

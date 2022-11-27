@@ -1,0 +1,69 @@
+﻿<Window x:Class="program.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:program"
+        mc:Ignorable="d"
+       
+        Title="Fenix" Height="699" MinHeight="700" MinWidth="1000" Width="704.5" Background="#FFFBB378" BorderBrush="#FFFBB378" OpacityMask="#FFFBB378" Foreground="#FFFBB378" WindowState="Maximized" Closed="Window_Closed" KeyDown="Window_KeyDown" Icon="/Icons/fenix.png" Loaded="Window_Loaded" KeyUp="Window_KeyUp">
+    <Grid x:Name="_grid_Main" Background="Silver" Margin="0,0,-8,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="241*"/>
+            <ColumnDefinition Width="112*"/>
+            <ColumnDefinition Width="261*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="185*"></RowDefinition>
+            <RowDefinition Height="279*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid  x:Name="DataGrid1" FontSize="15" Margin="10,32,10,56" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" SelectionChanged="DataGrid1_SelectionChanged" AutoGeneratingColumn="DataGrid1_AutoGeneratingColumn">
+            <DataGrid.Columns>
+                <DataGridTextColumn  Binding="{Binding date, StringFormat=yyyy/mm/dd}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button  x:Name="_btn_SeeAllInfo"   Content="Odśwież" Background="DarkGray" FontSize="16" Margin="10,0,0,5" Grid.Row="1" Click="SeeInfo_Click" Grid.Column="0" Height="39" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="233" Grid.ColumnSpan="2" IsEnabled="False"/>
+        <Image x:Name="_imgDetail" Grid.Column="2" Margin="10,32,10,62" Grid.Row="1"/>
+        <TextBox x:Name="_txtDateIn" BorderThickness="2" FontSize="22"  Margin="177,0,10,99" TextWrapping="Wrap" Text="" Height="38" VerticalAlignment="Bottom" Grid.ColumnSpan="2" TextChanged="_txtDateIn_TextChanged"/>
+        <Label Content="Nazwa detalu" FontSize="22" Margin="10,0,0,185" VerticalAlignment="Bottom" Height="38" HorizontalAlignment="Left" Width="162"/>
+        <Label Content="Data przyjęcia" FontSize="22" Margin="10,0,0,105" VerticalAlignment="Bottom" Height="38" HorizontalAlignment="Left" Width="162"/>
+        <TextBox x:Name="_txtCountIn" BorderThickness="2" FontSize="22"  Margin="177,0,10,57" TextWrapping="Wrap" Text="" Height="38" VerticalAlignment="Bottom" Grid.ColumnSpan="2" TextChanged="_txtCountIn_TextChanged"/>
+        <Label Content="Ilość " FontSize="22" Margin="10,0,0,57" VerticalAlignment="Bottom" Height="38" HorizontalAlignment="Left" Width="162"/>
+        <Button x:Name="_btn_OrderFinished" Content="Wprowadź" Background="DarkGray" FontSize="20" HorizontalAlignment="Left" Margin="177,0,0,14" VerticalAlignment="Bottom" Width="120" Height="38" Click="Button_Click_1" Grid.ColumnSpan="2" IsEnabled="False"/>
+        <ComboBox FontSize="22" x:Name="_cmbSearchNo" Margin="177,0,11,183" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Height="36" SelectionChanged="_cmbSearchNo_SelectionChanged" />
+        <TextBox Background="DarkSeaGreen" Foreground="Black" x:Name="_txtNoItem" FontSize="22" TextWrapping="Wrap" Height="36" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Margin="177,0,11,219" TextChanged="_txtNoItem_TextChanged" IsEnabled="False"/>
+        <Button x:Name="_btn_UpdateData" Background="DarkGray" FontSize="17" Content="Zaktualizuj informacje w bazie danych" Margin="0,0,10,5" Grid.Row="1" HorizontalAlignment="Right" Width="296" Height="39" VerticalAlignment="Bottom" Click="UpdateSave_Click" IsEnabled="False" Grid.ColumnSpan="2"/>
+        <Grid x:Name="_btnControl" Grid.Column="2" Height="246" VerticalAlignment="Top" Margin="10,10,5,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="97*"/>
+                <ColumnDefinition Width="93*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="126*"/>
+                <RowDefinition Height="37*"/>
+                <RowDefinition Height="39*"/>
+                <RowDefinition Height="44*"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="_btn_AddItem"  Content="Dodaj Przedmiot" Background="LightGreen" FontSize="15"  HorizontalAlignment="Left" Width="125" Click="Button_Click_2" Grid.Row="3" IsEnabled="False" Height="24" VerticalAlignment="Top" Margin="12,10,0,0"/>
+            <Button x:Name="_btn_AddOrder"  Content="Dodaj zamówienie" FontSize="15" Background="LightBlue" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Height="24"  Grid.Row="3" Grid.Column="1" Click="Button_Click_3" IsEnabled="False" Margin="6,10,0,0"/>
+            <Button  x:Name="_btn_Raport"  Content="Raport" FontSize="20" Background="DarkRed" Foreground="White" Margin="12,10,0,0" VerticalAlignment="Top" Height="38" HorizontalAlignment="Left" Width="125" Click="Button_Click_5" IsEnabled="False"/>
+            <Button x:Name="_btn_Print" Content="Wydruk WZ" FontSize="20" Background="DarkBlue" Foreground="White" Grid.Column="1" Margin="6,10,0,0" Height="38" VerticalAlignment="Top" Click="Button_Click_6" IsEnabled="False" HorizontalAlignment="Left" Width="125"/>
+            <Button x:Name="_btn_EditItem" Content="Zmień dane przedmiotu" Background="LightCoral"  HorizontalAlignment="Left" Grid.Row="2" Width="125" Click="Button_Click_4" IsEnabled="False" Height="24" VerticalAlignment="Top" Margin="12,5,0,0"/>
+            <Button x:Name="_btnAddCompany" Grid.Column="1" FontSize="18" Background="Fuchsia" Content="Dodaj firmę" Grid.Row="2" VerticalAlignment="Top" Height="25" Margin="6,4,0,0" Click="Button_Click_7" IsEnabled="False" HorizontalAlignment="Left" Width="125"/>
+            <Button x:Name="_btnEditCompany" Grid.Column="1"  Background="Fuchsia" Content="Zmień dane firmę" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="25" Width="125" Margin="6,0,0,0"  IsEnabled="False" Click="_btnEditCompany_Click"/>
+        </Grid>
+        <Border BorderBrush="Black" Background="DarkGray" BorderThickness="1" Margin="8,1,0,0" RenderTransformOrigin="0.494,0.501" Grid.Row="1" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="197">
+            <CheckBox x:Name="_ckboxShowFinished" Background="Wheat" BorderThickness="2" Content="Pokaż ukończone" FontSize="20" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="176" Checked="_ckboxShowFinished_Checked" Cursor="Hand" Margin="9,-1,0,0" />
+        </Border>
+        <CheckBox x:Name="_ckbox_Finish" Grid.Column="1" Content="Ukończone" HorizontalAlignment="Right" Margin="0,0,10,33" VerticalAlignment="Bottom" Height="19"/>
+        <Label Content="Od kogo" FontSize="22" Margin="10,0,0,143" VerticalAlignment="Bottom" Height="38" HorizontalAlignment="Left" Width="162"/>
+        <ComboBox FontSize="22" x:Name="_cmbFromWhom" Margin="177,0,11,143" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Height="36" />
+        <Button  x:Name="_btn_DelAllOrders"   Content="Delete all Orders" Background="DarkGray" FontSize="16" Margin="0,0,10,5" Grid.Row="1"  Grid.Column="2" Height="39" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="233" Click="_btn_DelAllOrders_Click" IsEnabled="False"/>
+
+
+
+
+
+
+    </Grid>
+</Window>
